@@ -1,0 +1,30 @@
+{
+  "name": "strive-homework-m5d2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon ./src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azizmatyakubov/Strive-Homework-M5D2.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azizmatyakubov/Strive-Homework-M5D2/issues"
+  },
+  "homepage": "https://github.com/azizmatyakubov/Strive-Homework-M5D2#readme",
+  "dependencies": {
+    "express": "^4.17.3",
+    "express-list-endpoints": "^6.0.0",
+    "uniqid": "^5.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
