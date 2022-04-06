@@ -1,1 +1,26 @@
-[{"name":"Arthur","surname":"Conan Doyle","id":"1","email":"arthur@sherlock.com","date":"01/01/1899","avatar":"https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Arthur_Conan_Doyle_by_Gage_Skidmore_2.jpg/220px-Arthur_Conan_Doyle_by_Gage_Skidmore_2.jpg"},{"id":"etxcy5dlgl1mnydom","avatar":"https://ui-avatars.com/api/?name=John+Doe"},{"id":"etxcy5ee8l1mnzjl2","avatar":"https://ui-avatars.com/api/?name=John+Doe"}]
+[
+  {
+    "name": "Arthur",
+    "surname": "Conan Doyle",
+    "id": "1",
+    "email": "arthur@sherlock.com",
+    "date": "01/01/1899",
+    "avatar": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Arthur_Conan_Doyle_by_Gage_Skidmore_2.jpg/220px-Arthur_Conan_Doyle_by_Gage_Skidmore_2.jpg"
+  },
+  {
+    "id": "etxcy5dlgl1mnydom",
+    "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+  },
+  {
+    "id": "etxcy5ee8l1mnzjl2",
+    "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+  },
+  {
+    "name": "Peter",
+    "surname": "Ben",
+    "email": "PeterBen@gmail.com",
+    "dataOfBirth": "22-09-1994",
+    "id": "etxcy51ugl1nallap",
+    "avatar": "https://ui-avatars.com/api/?name=John+Doe"
+  }
+]
