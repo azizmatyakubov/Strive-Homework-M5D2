@@ -1,34 +1,41 @@
 [
   {
     "category": "I changed category",
-    "title": "article changed",
+    "title": "Strive School",
     "cover": "ARTICLE COVER (IMAGE LINK)",
     "readTime": { "value": 3, "unit": "minute" },
     "author": { "name": "AUTHOR AVATAR NAME", "avatar": "AUTHOR AVATAR LINK" },
     "content": "HTML",
     "_id": "etxcy5b58l1oz1j0q",
-    "createdAt": "2022-04-07T12:24:34.441Z"
+    "createdAt": "2022-04-07T12:24:34.441Z",
+    "comments": [
+      { "name": "John", "text": "good post 3" },
+      { "name": "John", "text": "good post 4" },
+      { "name": "John", "text": "good post 5" },
+      { "name": "Aziz", "text": "good post" },
+      { "name": "Ali", "text": "I like this post" }
+    ]
   },
   {
-    "category": "newer post",
-    "title": "ARTICLE TITLE",
+    "category": "How to learn nodejs",
+    "title": "I need to upload picture",
     "cover": "ARTICLE COVER (IMAGE LINK)",
-    "readTime": { "value": 2, "unit": "minute" },
+    "readTime": { "value": 3, "unit": "minute" },
     "author": { "name": "AUTHOR AVATAR NAME", "avatar": "AUTHOR AVATAR LINK" },
     "content": "HTML",
-    "_id": "etxcy5a24l1ozk8jj",
-    "createdAt": "2022-04-07T12:39:07.326Z",
-    "updatedAt": "2022-04-07T12:34:12.454Z"
+    "_id": "etxcy5e3cl1p4efj9",
+    "createdAt": "2022-04-07T14:54:34.532Z",
+    "comments": []
   },
   {
-    "category": "newer post",
-    "title": "ARTICLE TITLE",
+    "category": "How to learn nodejs",
+    "title": "How to learn nodejs",
     "cover": "ARTICLE COVER (IMAGE LINK)",
-    "readTime": { "value": 2, "unit": "minute" },
+    "readTime": { "value": 3, "unit": "minute" },
     "author": { "name": "AUTHOR AVATAR NAME", "avatar": "AUTHOR AVATAR LINK" },
     "content": "HTML",
-    "_id": "etxcy58gcl1ozl8mt",
-    "createdAt": "2022-04-07T12:39:54.100Z",
-    "updatedAt": "2022-04-07T12:34:12.454Z"
+    "_id": "etxcy5b0gl1p4f0vu",
+    "createdAt": "2022-04-07T14:55:02.201Z",
+    "comments": [{ "name": "new user", "text": "I like this post" }]
   }
 ]

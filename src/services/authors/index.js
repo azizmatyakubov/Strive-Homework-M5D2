@@ -1,8 +1,9 @@
 import express from "express";
 import uniqid from "uniqid" 
-import { getAuthors, writeAuthors } from "../../lib/fs-tools.js";
+import { getAuthors, savePostsPicture, writeAuthors } from "../../lib/fs-tools.js";
 import createError from "http-errors"
-
+import multer from "multer";
+import {join} from 'path'
 
 const authorsRouter = express.Router()
 
@@ -69,6 +70,20 @@ authorsRouter.delete('/:id', async (req,res, next) => {
         const remainingAuthors = authors.filter(author => author.id !== req.params.id)
         writeAuthors(remainingAuthors)
         res.status(200).send({message: 'DELETED'})
+    } catch (error) {
+        next(error)
+    }
+})
+
+// 6. POST PICTURE
+authorsRouter.post('/:id/uploadAvatar', multer().single('coverAuthor'),  async (req, res, next) => {
+    try {
+        await savePostsPicture(req.params.id + '.jpg', req.file.buffer)
+        res.send({message: 'Photo saved'})
+
+        console.log("FILE: ", req.file)
+
+
     } catch (error) {
         next(error)
     }

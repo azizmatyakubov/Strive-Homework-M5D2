@@ -91,6 +91,32 @@ blogPostsRouter.delete('/:id', async (req, res, next) => {
     }
 })
 
+// GET ALL COMMENTS BY ID
+blogPostsRouter.get('/:id/comments', async (req, res, next) => {
+    try {
+        const posts = await getBlogPosts()
+        const post = posts.find(post => post._id === req.params.id)
+        res.status(200).send(post.comments)
+    } catch (error) {
+        next(error)
+    }
+})
 
+// POST NEW COMMENTS
+blogPostsRouter.post('/:id/comments', async (req, res, next) => {
+    try {
+
+        const posts = await getBlogPosts() // Get all posts
+        const indexOfPost = posts.findIndex(post => post._id === req.params.id) // get posts by id
+        if(indexOfPost !== -1) {
+            const oldComments = posts[indexOfPost].comments // get comments by post id
+            oldComments.push(req.body)
+            writeBlogPosts(posts)
+            res.status(201).send({message: 'New comment added'})
+        }
+    } catch (error) {
+        next(error)
+    }
+})
 
 export default blogPostsRouter
