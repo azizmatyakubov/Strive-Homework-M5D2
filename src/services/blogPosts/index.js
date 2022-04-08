@@ -1,13 +1,15 @@
 import express from 'express'
 import uniqid from 'uniqid'
-import { getBlogPosts, writeBlogPosts } from '../../lib/fs-tools.js'
+import { getBlogPosts, savePostsPicture, writeBlogPosts } from '../../lib/fs-tools.js'
 import createError from "http-errors"
+import multer from 'multer'
 
 const blogPostsRouter = express.Router()
 
 
 // POST blog
 blogPostsRouter.post('/', async (req, res, next) => {
+    await console.log(req.body, 'this is body')
     try {
         const newPost = {...req.body, _id: uniqid(), createdAt: new Date()  }; // construct new post object
 
@@ -110,7 +112,7 @@ blogPostsRouter.post('/:id/comments', async (req, res, next) => {
         const indexOfPost = posts.findIndex(post => post._id === req.params.id) // get posts by id
         if(indexOfPost !== -1) {
             const oldComments = posts[indexOfPost].comments // get comments by post id
-            oldComments.push(req.body)
+            oldComments.push({...req.body, _id: uniqid()})
             writeBlogPosts(posts)
             res.status(201).send({message: 'New comment added'})
         }
@@ -118,5 +120,24 @@ blogPostsRouter.post('/:id/comments', async (req, res, next) => {
         next(error)
     }
 })
+
+
+// POST COVER
+blogPostsRouter.post('/:id/uploadCover', multer().single('coverPost'), async(req, res, next) => {
+    try {
+        const postId = req.params.id
+        const url = `http://localhost:5000/img/posts/${postId}.jpg`
+        await savePostsPicture(postId + '.jpg', req.file.buffer)
+        const posts = await getBlogPosts()
+        const foundPost = posts.find(post => post._id === postId)
+        foundPost.cover = url;
+        writeBlogPosts(posts)
+        res.status(201).send({message: 'Image is uploaded'})
+    } catch (error) {
+        next(error)
+    }
+})
+
+
 
 export default blogPostsRouter

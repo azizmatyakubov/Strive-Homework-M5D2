@@ -1,11 +1,11 @@
 [
   {
-    "category": "I changed category",
-    "title": "Strive School",
+    "category": "programming",
+    "title": "how to write new post with nodejs",
     "cover": "ARTICLE COVER (IMAGE LINK)",
     "readTime": { "value": 3, "unit": "minute" },
-    "author": { "name": "AUTHOR AVATAR NAME", "avatar": "AUTHOR AVATAR LINK" },
-    "content": "HTML",
+    "author": { "name": "Will Bem", "avatar": "AUTHOR AVATAR LINK" },
+    "content": "<p>Start with the basics: Web or Data? After 3 months of basic training, you start a master of your choice and become a specialist. In the next sixth month you will dedicate yourself to a final project and will take part in interviews with companies. SELECT A CORE COURSE AND A SPECIALIZATION changed</p>",
     "_id": "etxcy5b58l1oz1j0q",
     "createdAt": "2022-04-07T12:24:34.441Z",
     "comments": [
@@ -14,28 +14,56 @@
       { "name": "John", "text": "good post 5" },
       { "name": "Aziz", "text": "good post" },
       { "name": "Ali", "text": "I like this post" }
-    ]
+    ],
+    "updatedAt": "2022-04-08T12:13:38.972Z",
+    "author.name": "Will Bem"
   },
   {
     "category": "How to learn nodejs",
-    "title": "I need to upload picture",
-    "cover": "ARTICLE COVER (IMAGE LINK)",
+    "title": "I need to upload picture 2",
+    "cover": "http://localhost:5000/img/posts/etxcy5e3cl1p4efj9.jpg",
     "readTime": { "value": 3, "unit": "minute" },
-    "author": { "name": "AUTHOR AVATAR NAME", "avatar": "AUTHOR AVATAR LINK" },
-    "content": "HTML",
+    "author": { "name": "Sherlock Holmes", "avatar": "AUTHOR AVATAR LINK" },
+    "content": "<p>HTML</p>",
     "_id": "etxcy5e3cl1p4efj9",
     "createdAt": "2022-04-07T14:54:34.532Z",
-    "comments": []
+    "comments": [
+      { "title": "sherali", "text": "how to write new post with nodejs" },
+      {
+        "title": "Lana",
+        "text": "how to write new post with nodejs",
+        "_id": "etxcy5f5cl1qeuzlh"
+      }
+    ],
+    "updatedAt": "2022-04-08T10:06:40.363Z"
   },
   {
     "category": "How to learn nodejs",
     "title": "How to learn nodejs",
-    "cover": "ARTICLE COVER (IMAGE LINK)",
+    "cover": "http://localhost:5000/img/posts/etxcy5b0gl1p4f0vu.jpg",
     "readTime": { "value": 3, "unit": "minute" },
-    "author": { "name": "AUTHOR AVATAR NAME", "avatar": "AUTHOR AVATAR LINK" },
+    "author": { "name": "Ben Cefre", "avatar": "AUTHOR AVATAR LINK" },
     "content": "HTML",
     "_id": "etxcy5b0gl1p4f0vu",
     "createdAt": "2022-04-07T14:55:02.201Z",
     "comments": [{ "name": "new user", "text": "I like this post" }]
+  },
+  {
+    "category": "How",
+    "title": "this is title 2",
+    "cover": "http://localhost:5000/img/posts/etxcy590kl1pmcq79.jpg",
+    "readTime": { "value": 3, "unit": "minute" },
+    "author": { "name": "Ben Cefre", "avatar": "AUTHOR AVATAR LINK" },
+    "content": "<p>Hello</p>",
+    "_id": "etxcy590kl1pmcq79",
+    "createdAt": "2022-04-07T23:17:08.132Z",
+    "comments": [
+      {
+        "category": "programming",
+        "title": "how to write new post with nodejs"
+      },
+      {},
+      {}
+    ]
   }
 ]

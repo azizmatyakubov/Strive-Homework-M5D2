@@ -1,15 +1,11 @@
 [
   {
-    "id": "etxcy5ee8l1mnzjl2",
-    "avatar": "https://ui-avatars.com/api/?name=John+Doe"
-  },
-  {
     "name": "Peter is changed",
     "surname": "Ben",
     "email": "PeterBen@gmail.com",
     "dataOfBirth": "22-09-1994",
-    "id": "etxcy51ugl1nallap",
-    "avatar": "https://ui-avatars.com/api/?name=John+Doe",
+    "_id": "etxcy51ugl1nallap",
+    "avatar": "localhost:5000/img/authors/etxcy51ugl1nallap.jpg",
     "updatedAt": "2022-04-07T13:02:02.684Z"
   }
 ]

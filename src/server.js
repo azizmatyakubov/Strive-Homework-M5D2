@@ -5,7 +5,6 @@ import { join } from 'path'
 // Routers
 import authorsRouter from './services/authors/index.js'
 import blogPostsRouter from './services/blogPosts/index.js'
-import filesRouter from './services/files/index.js'
 
 import { dataFolderPath } from './lib/fs-tools.js'
 import { genericErrorHandler, notFoundErrorHandler, badRequestErrorHandler, unauthorizedErrorHandler } from "./errorHandlers.js"
@@ -23,7 +22,6 @@ server.use(express.json())
 
 server.use('/authors', authorsRouter)
 server.use('/blogPosts',  blogPostsRouter)
-server.use("/files", filesRouter)
 
 
 // --------------------------------- ERROR HANDLERS -----------------
@@ -33,6 +31,6 @@ server.use(notFoundErrorHandler) // 404
 server.use(genericErrorHandler) // 500
 
 
-server.listen(3000, () => {
-    console.log('Server is running on port 3000')
+server.listen(5000, () => {
+    console.log('Server is running on port 5000')
     console.table(listEndpoints(server))})
