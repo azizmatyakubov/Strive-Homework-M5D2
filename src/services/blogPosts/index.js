@@ -122,7 +122,7 @@ blogPostsRouter.post('/:id/comments', async (req, res, next) => {
 })
 
 
-// POST COVER
+// POST COVER IMAGE
 blogPostsRouter.post('/:id/uploadCover', multer().single('coverPost'), async(req, res, next) => {
     try {
         const postId = req.params.id
