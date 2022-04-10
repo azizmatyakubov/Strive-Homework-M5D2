@@ -11,7 +11,16 @@ const blogPostsRouter = express.Router()
 blogPostsRouter.post('/', async (req, res, next) => {
     await console.log(req.body, 'this is body')
     try {
-        const newPost = {...req.body, _id: uniqid(), createdAt: new Date()  }; // construct new post object
+        const newPost = {
+            ...req.body, 
+            _id: uniqid(), 
+            cover: {},  
+            readTime: { "value": 3, "unit": "minute" },
+            author: {
+            "name": "Ben Cefre",
+            "avatar": "localhost:5000/img/authors/etxcy51ugl1nallap.jpg"}, 
+            createdAt: new Date(),
+            comments: []  }; // construct new post object
 
         const Posts = await getBlogPosts() // get all posts array
         
@@ -132,7 +141,7 @@ blogPostsRouter.post('/:id/uploadCover', multer().single('coverPost'), async(req
         const foundPost = posts.find(post => post._id === postId)
         foundPost.cover = url;
         writeBlogPosts(posts)
-        res.status(201).send({message: 'Image is uploaded'})
+        res.status(200).send({message: 'Image is uploaded'})
     } catch (error) {
         next(error)
     }
