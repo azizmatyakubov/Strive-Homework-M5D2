@@ -8,8 +8,7 @@ import blogPostsRouter from './services/blogPosts/index.js'
 
 import { dataFolderPath } from './lib/fs-tools.js'
 import { genericErrorHandler, notFoundErrorHandler, badRequestErrorHandler, unauthorizedErrorHandler } from "./errorHandlers.js"
-import * as dotenv from 'dotenv'
-dotenv.config();
+
 
 const PORT = process.env.PORT || 4000
 const server = express()
