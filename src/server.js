@@ -8,9 +8,10 @@ import blogPostsRouter from './services/blogPosts/index.js'
 
 import { dataFolderPath } from './lib/fs-tools.js'
 import { genericErrorHandler, notFoundErrorHandler, badRequestErrorHandler, unauthorizedErrorHandler } from "./errorHandlers.js"
+import * as dotenv from 'dotenv'
+dotenv.config();
 
-
-
+const PORT = process.env.PORT || 4000
 const server = express()
 
 const publicFolderPath = join(process.cwd(), './public')
@@ -31,6 +32,6 @@ server.use(notFoundErrorHandler) // 404
 server.use(genericErrorHandler) // 500
 
 
-server.listen(5000, () => {
-    console.log('Server is running on port 5000')
+server.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`)
     console.table(listEndpoints(server))})
