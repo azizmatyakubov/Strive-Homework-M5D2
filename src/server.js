@@ -10,7 +10,8 @@ import { dataFolderPath } from './lib/fs-tools.js'
 import { genericErrorHandler, notFoundErrorHandler, badRequestErrorHandler, unauthorizedErrorHandler } from "./errorHandlers.js"
 
 
-const PORT = process.env.PORT || 4000
+const PORT = process.env.PORT || 5000
+
 const server = express()
 
 const publicFolderPath = join(process.cwd(), './public')

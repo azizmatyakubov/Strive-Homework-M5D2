@@ -1,10 +1,15 @@
 import express from 'express'
 import uniqid from 'uniqid'
-import { getBlogPosts, savePostsPicture, writeBlogPosts } from '../../lib/fs-tools.js'
+import { getBlogPosts, getPostsReadableStream, savePostsPicture, writeBlogPosts } from '../../lib/fs-tools.js'
 import createError from "http-errors"
 import multer from 'multer'
+import json2csv from "json2csv"
+import {pipeline} from 'stream'
+import sgMail from '@sendgrid/mail'
 
 const blogPostsRouter = express.Router()
+
+sgMail.setApiKey(process.env.SENDGRID_API_KEY)
 
 
 // POST blog
@@ -27,7 +32,17 @@ blogPostsRouter.post('/', async (req, res, next) => {
         Posts.push(newPost) // push new post object to array
         
         writeBlogPosts(Posts) // write file 
-        
+
+        const msg = {
+            to: 'a.matyaqubov0712@gmail.com',
+            from: process.env.SENDER, // Use the email address or domain you verified above
+            subject: 'Created new post',
+            text: "New post created, you can check!",
+            html: "New post created, you can check!",
+        }
+
+        await sgMail.send(msg);
+       
         res.status(201).send({id: newPost._id}) // send status and message
     } catch (error) {
         next(error)
@@ -43,6 +58,25 @@ blogPostsRouter.get('/', async (req, res, next) => {
         next(error)
     }
 })
+
+// DOWNLOAD BOOK JSON FILE 
+blogPostsRouter.get('/downloadJson', async(req, res, next) => {
+    try {
+        const source = getPostsReadableStream()
+        const transform = new json2csv.Transform({fields: ['title', '_id']})
+        const destionation = res
+        
+        res.setHeader("Content-Disposition", "attachment; filename=posts.csv")
+
+        pipeline(source, transform, destionation, (err) => {
+            if(err) console.log(err)
+        })
+
+    } catch (error) {
+        next(error)
+    }
+})
+
 
 // GET BLOG POST BY ID
 blogPostsRouter.get('/:id', async (req, res, next) => {
