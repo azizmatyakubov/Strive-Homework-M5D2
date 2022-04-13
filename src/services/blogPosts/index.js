@@ -6,6 +6,7 @@ import multer from 'multer'
 import json2csv from "json2csv"
 import {pipeline} from 'stream'
 import sgMail from '@sendgrid/mail'
+import { sendEmail } from '../../lib/email-tools.js'
 
 const blogPostsRouter = express.Router()
 
@@ -32,16 +33,11 @@ blogPostsRouter.post('/', async (req, res, next) => {
         Posts.push(newPost) // push new post object to array
         
         writeBlogPosts(Posts) // write file 
-
-        const msg = {
-            to: 'a.matyaqubov0712@gmail.com',
-            from: process.env.SENDER, // Use the email address or domain you verified above
-            subject: 'Created new post',
-            text: "New post created, you can check!",
-            html: "New post created, you can check!",
-        }
-
-        await sgMail.send(msg);
+        
+        const clients = ['a.matyaqubov0712@gmail.com', 'lilbehzod67@gmail.com']
+        
+        sendEmail(clients, 'New post', 'There is new post, check this out!')
+        
        
         res.status(201).send({id: newPost._id}) // send status and message
     } catch (error) {
